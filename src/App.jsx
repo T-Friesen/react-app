@@ -21,7 +21,7 @@ const API_OPTIONS = {
   }
 }
 
-// the sstart of the application
+// the start of the application
 const App = () => {
   // setting the initial states of the application variables
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,7 +31,7 @@ const App = () => {
 
   // Debounce the search term so that the api isn't getting called every button press
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
-  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm])
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 1000, [searchTerm])
 
   // fetch movies based on a search query or load popular movies if nothing is being queried
   const fetchMovies = async (query = '') => {
@@ -49,12 +49,6 @@ const App = () => {
 
       const data = await response.json();
       
-      if(data.Response === "False"){
-        setErrorMessage(data.Error || 'Failed to fetch movies.');
-        setMovieList([]);
-        return;
-      }
-
       setMovieList(data.results || []);
 
     } catch(error){
