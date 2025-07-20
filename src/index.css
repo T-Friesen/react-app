@@ -160,3 +160,26 @@
     display: none;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.pagination button {
+  background: #8e44ad;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.page-info {
+  color: white;
+  font-size: 1.2rem;
+}
